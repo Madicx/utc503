@@ -8,10 +8,11 @@ echo "----------------------Gestion des Licences logicielles--------------------
 $employees=loadAndDump(DATA_LOCATION."employees.json");
 $services=loadAndDump(DATA_LOCATION."services.json");
 $softs=loadAndDump(DATA_LOCATION."softs.json");
-
 $licenses=loadAndDump(DATA_LOCATION."licenses.json");
 
 
 arrayDump(getEmployeesByService($employees,'compta'),'Liste des employés de la compta');
 
-Rajout lignes
+
+//Test Where
+arrayDump(where($employees,"service","dsi"), 'Liste DSI');

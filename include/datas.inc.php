@@ -37,8 +37,23 @@ function getEmployeesByService(array $employees,string $service):array{
 	);
 }
 
+/**
+ * Retourne un tableau filtré d'élément satisfaisant une condition $key=$value
+ * @param array $array
+ * @param string $key
+ * @param unknown $value
+ * @return array
+ */
 
-
+function where(array $array, string $key, $value):array{
+    $result=[];
+    foreach ($array as $element){
+        if($element[$key]===$value){
+            $result[]=$element;
+        }
+    }
+    Return $result
+}
 
 
 
