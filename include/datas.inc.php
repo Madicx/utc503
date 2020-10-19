@@ -52,10 +52,30 @@ function where(array $array, string $key, $value):array{
             $result[]=$element;
         }
     }
-    Return $result
+    Return $result;
+}
+   
+/**
+ * Retourne une version du tableau $array
+ * @param array $array
+ * @param array $selectFiedls
+ * @return array
+ */
+
+function select(array $array, array $selectFields):array{
+	$result=[];
+	foreach ($array as $index=>$element){
+		$result[$index]=[];
+		foreach ($selectFields as $fieldKey){
+			$result[$index][$fieldKey]=$element[$fieldKey];
+		}
+	}
+	return $result;
 }
 
-
+function selectWhere(array $array, array $selectFields, array $where):array{
+	return select(where($array, $where[0], $where[1]), $selectFields);
+}
 
 
 
